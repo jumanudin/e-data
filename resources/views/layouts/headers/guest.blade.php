@@ -1,0 +1,11 @@
+<div class="header py-4 py-lg-8">
+    <div class="container">
+        <div class="header-body text-center mb-2">
+            <div class="row justify-content-center">
+                <div class="col-lg-5 col-md-6">
+                    <h1 class="text-silver">{{ __('SELAMAT DATANG DI e-DATA') }}</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
