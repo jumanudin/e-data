@@ -3,10 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Unit;
+use App\Models\Kabkota;
 use Illuminate\Support\Facadas\DB;
-
-class UnitController extends Controller
+class CityController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,10 +15,8 @@ class UnitController extends Controller
     public function index()
     {
         $data = Kabkota::all();
-        $totsubmit = Dupak::select('*')->count(); 
-        $totproses = Dupak::where('status_kirim',1)->count(); 
-        return view('pages.city.city_data', compact('data','totsubmit','totproses'))
-            ->with('i', (request()->input('page', 1) - 1) * 10);
+        return view('pages.city.city_data',compact('data'))
+        ->with('i', (request()->input('page', 1) - 1) * 10);    
     }
 
     /**
@@ -29,10 +26,8 @@ class UnitController extends Controller
      */
     public function create()
     {
-        $totsubmit = Dupak::select('*')->count(); 
-        $totproses = Dupak::where('status_kirim',1)->count(); 
         $data = Kabkota::latest()->paginate(10);
-        return view('pages.city.city_create', compact('data','totsubmit','totproses'));
+        return view('pages.city.city_create', compact('data'));
     }
 
     /**
@@ -45,20 +40,17 @@ class UnitController extends Controller
     {
         $validData = $request->validate([
             'kode' => 'required|unique:kabkota|max:4',
-            'nama' => 'required',
-            'ibukota' => 'required'
-        ], [
+            'nama'=>'required',
+            'ibukota'=>'required'
+        ],[
             'kode.required'     => 'kode daerah harus diisi.',
             'kode.max'          => 'kode maksimal 4 karakter.',
             'kode.unique'       => 'kode sudah ada',
             'nama.required'     => 'nama harus diisi.',
             'ibukota.required'  => 'ibukota harus diisi.',
-
         ]);
-
-
-        Kabkota::create($validData);
-        return redirect('city')->with('success', 'Data berhasil ditambahkan.');
+        $temp           = Kabkota::create($validData);
+        return redirect('city')->with('success','Data berhasil ditambahkan.');
     }
 
     /**
@@ -81,7 +73,7 @@ class UnitController extends Controller
     public function edit($id)
     {
         $kota = Kabkota::find($id);
-        return view('pages.city.city_edit', compact('kota'));
+        return view('pages.city.city_edit',compact('kota'));
     }
 
     /**
@@ -93,13 +85,12 @@ class UnitController extends Controller
      */
     public function update(Request $request, $id)
     {
-        // return ($request);
-
         $validData = $request->validate([
-            'nama' => 'required',
-            'ibukota' => 'required',
-            'updated_at' =>  \Carbon\Carbon::now()
-        ], [
+            'kode' => 'required|max:4',
+            'nama'=>'required',
+            'ibukota'=>'required',
+            'updated_at' =>  \Carbon\Carbon::now()            
+        ],[
             'kode.required'     => 'kode daerah harus diisi.',
             'kode.max'          => 'kode maksimal 4 karakter.',
             'kode.unique'       => 'kode sudah ada',
@@ -107,7 +98,7 @@ class UnitController extends Controller
             'ibukota.required'  => 'ibukota harus diisi.',
         ]);
         Kabkota::find($id)->update($validData);
-        return redirect('city')->with('success', 'data berhasil diubah.');
+        return redirect('city')->with('success','data berhasil diubah.');
     }
 
     /**
@@ -121,9 +112,9 @@ class UnitController extends Controller
         $kota = Kabkota::find($id);
         $result = $kota->delete();
         if ($result) {
-            \Session::flash('pesan_berhasil', 'Berhasil menghapus data');
-        } else {
-            \Session::flash('pesan_gagal', 'Gagal menghapus data');
+            \Session::flash('pesan_berhasil','Berhasil menghapus data');
+          }else {
+            \Session::flash('pesan_gagal','Gagal menghapus data');
         }
         return redirect('city');
     }

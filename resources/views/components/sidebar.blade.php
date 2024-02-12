@@ -27,46 +27,16 @@
                 {!!
                     Helper::multiple_menu([
                     'menu' => 'master',
-                    'submenu' => ['pegawai','doc_arsip']
+                    'submenu' => ['pegawai','city']
                     ],[
                     'menu' => '#',
-                    'submenu' => ['pegawai','doc_arsip']
+                    'submenu' => ['pegawai','city']
                     ],[
                     'menu' => 'fa fa-folder-open',
                     'submenu' => ['fas fa-address-card','']
                     ],[
                     'menu' => 'Master Data',
-                    'submenu' => ['Pegawai','Dokumen Arsip']
-                    ]);
-                !!}
-                {!!
-                    Helper::multiple_menu([
-                    'menu' => 'transaksi',
-                    'submenu' => ['ts_master','spd_master','verifikator','buat_spd','arsip_trc']
-                    ],[
-                    'menu' => '#',
-                    'submenu' => ['ts_master','spd_master','verifikator','buat_spd','arsip_trc']
-                    ],[
-                    'menu' => 'ni ni-bullet-list-67',
-                    'submenu' => ['fas fa-city','fas fa-user-tie','fas fa-user-friends','fas fa-user-friends','fas fa-user-friends']
-                    ],[
-                    'menu' => 'Transaksi',
-                    'submenu' => ['Telaahan Staf','Kontrol SPD','Inbox Verifikator','Inbox Perjadin','Inbox Arsip']
-                    ]);
-                !!}
-                {!!
-                    Helper::multiple_menu([
-                    'menu' => 'report',
-                    'submenu' => ['report_spd','report_spd/token']
-                    ],[
-                    'menu' => '#',
-                    'submenu' => ['report_spd','report_spd/token']
-                    ],[
-                    'menu' => 'ni ni-bullet-list-67',
-                    'submenu' => ['fas fa-file','fas fa-file']
-                    ],[
-                    'menu' => 'Laporan',
-                    'submenu' => ['Monitoring SPD','Monitoring Token SPD']
+                    'submenu' => ['Pegawai','Kab / Kota']
                     ]);
                 !!}
                 {!!

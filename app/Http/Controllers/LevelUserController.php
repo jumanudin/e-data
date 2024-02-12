@@ -20,12 +20,8 @@ class LevelUserController extends Controller
      */
     public function index()
     {
-      $totdraf    = Ts_master::where('status',0)->count(); 
-      $totsetuju  = Ts_master::where('status',1)->count(); 
-      $totrevisi  = Ts_master::where('status',2)->count();
-      $tottolak   = Ts_master::where('status',3)->count();
         $role = Role_user::all();
-        return view('pages.role.role_user',compact('role','totdraf','totsetuju','totrevisi','tottolak'))
+        return view('pages.role.role_user',compact('role'))
         ->with('i', (request()->input('page', 1) - 1) * 10);    }
 
     /**
@@ -35,12 +31,8 @@ class LevelUserController extends Controller
      */
     public function create()
     {
-      $totdraf    = Ts_master::where('status',0)->count(); 
-      $totsetuju  = Ts_master::where('status',1)->count(); 
-      $totrevisi  = Ts_master::where('status',2)->count();
-      $tottolak   = Ts_master::where('status',3)->count();
         $modul = Modul::all();
-        return view('pages.role.role_create',compact('modul','totdraf','totsetuju','totrevisi','tottolak'));
+        return view('pages.role.role_create',compact('modul'));
     }
     public function reupdate($id)
     {
@@ -113,10 +105,6 @@ class LevelUserController extends Controller
      */
     public function edit($id)
     {
-        $totdraf    = Ts_master::where('status',0)->count(); 
-        $totsetuju  = Ts_master::where('status',1)->count(); 
-        $totrevisi  = Ts_master::where('status',2)->count();
-        $tottolak   = Ts_master::where('status',3)->count();
         $data = Role_user::find($id);
         //cek modul dulu di role ada tidaknya
         
@@ -142,7 +130,7 @@ class LevelUserController extends Controller
               ->orderBy('id_modul')
               ->get();     
         $modul = Modul::all();        
-        return view('pages.role.role_edit',compact('role','data','totdraf','totsetuju','totrevisi','tottolak'))->with('i');
+        return view('pages.role.role_edit',compact('role','data'))->with('i');
     }
 
     /**

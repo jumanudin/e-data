@@ -57,7 +57,7 @@
         </div>
     </div>
     @yield('modal')
-    <!-- General JS Scripts -->
+    <!-- General JS Scripts x-->
     <script src="{{ asset('library/jquery/dist/jquery.min.js') }}"></script>
     <script src="{{ asset('library/popper.js/dist/umd/popper.js') }}"></script>
     <script src="{{ asset('library/tooltip.js/dist/umd/tooltip.js') }}"></script>
@@ -71,7 +71,6 @@
     <script src="{{ asset('turtle/js/stisla.js') }}"></script>
     <script src="{{ asset('turtle/js/scripts.js') }}"></script>
     <script src="{{ asset('turtle/js/custom.js') }}"></script>
-    @include('sweetalert::alert')
-    
+    @include('sweetalert::alert')    
     </body>
 </html>

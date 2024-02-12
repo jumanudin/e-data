@@ -15,12 +15,8 @@ class LogsController extends Controller
      */
     public function index()
     {
-        $totdraf    = Ts_master::where('status',0)->count(); 
-        $totsetuju  = Ts_master::where('status',1)->count(); 
-        $totrevisi  = Ts_master::where('status',2)->count();
-        $tottolak   = Ts_master::where('status',3)->count();
         $logs = Logs::all();
-        return view('pages.logs.logs_data',compact('logs','totdraf','totsetuju','totrevisi','tottolak'))
+        return view('pages.logs.logs_data',compact('logs'))
         ->with('i',(request()->input('page',1) - 1) * 10);
     }
 
