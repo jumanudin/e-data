@@ -54,7 +54,8 @@
                     'submenu' => ['Role User','Data User']
                     ]);
                 
-                !!}           
+                !!}      
+                     
                 @endif
 
             <li class="{{ Request::is('credits') ? 'active' : '' }}">
