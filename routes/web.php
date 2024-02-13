@@ -46,7 +46,7 @@ Route::group(['middleware' => 'auth','verified'], function () {
     Route::get('city/edit/{value}', [ CityController::class,"edit"])->middleware('role:city,u');
     Route::post('city/edit/{value}', [ CityController::class,"update"])->middleware('role:city,u');
     Route::get('city/hapus/{value}', [ CityController::class,"destroy"])->middleware('role:city,h');
-    
+/* System */    
     Route::get('data_user', [ UserController::class, "index_view" ])->name('user')->middleware('role:data_user,l');
     Route::get('data_user/new', [ UserController::class,"create"])->name('user.new')->middleware('role:data_user,t');
     Route::post('data_user/submit', [ UserController::class,"store"])->name('user.submit')->middleware('role:data_user,t');
