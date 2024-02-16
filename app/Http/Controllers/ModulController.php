@@ -39,7 +39,7 @@ class ModulController extends Controller
     {
         $data = Modul::latest();
         $modtype = Modul_type::all();
-        return view('pages.modul.modul_create', compact('data'));
+        return view('pages.modul.modul_create', compact('data','modtype'));
     }
 
     /**

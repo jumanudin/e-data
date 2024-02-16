@@ -16,7 +16,7 @@
                     'menu' => '#',
                     'submenu' => ['modul_name','logs','utility']
                     ],[
-                    'menu' => 'fa fa-folder-open',
+                    'menu' => 'fas fa-folder-open',
                     'submenu' => ['ni ni-bullet-list-67','fas fa-file-alt','fas fa-file-alt']
                     ],[
                     'menu' => 'Sistem Utility',
@@ -32,7 +32,7 @@
                     'menu' => '#',
                     'submenu' => ['pegawai','city']
                     ],[
-                    'menu' => 'fa fa-folder-open',
+                    'menu' => 'fas fa-folder-open',
                     'submenu' => ['fas fa-address-card','']
                     ],[
                     'menu' => 'Master Data',
@@ -47,7 +47,7 @@
                     'menu' => '#',
                     'submenu' => ['role_user','data_user']
                     ],[
-                    'menu' => 'fa fa-users',
+                    'menu' => 'fas fa-users',
                     'submenu' => ['fas fa-user-cog','fas fa-user-friends']
                     ],[
                     'menu' => 'User',
@@ -67,9 +67,9 @@
         </ul>
 
         <div class="hide-sidebar-mini mt-4 mb-4 p-3">
-            <a href="https://getstisla.com/docs"
+            <a href=""
                 class="btn btn-primary btn-lg btn-block btn-icon-split">
-                <i class="fas fa-rocket"></i> Documentation
+                <i class="fas fa-rocket"></i> Petunjuk Aplikasi
             </a>
         </div>
     </aside>

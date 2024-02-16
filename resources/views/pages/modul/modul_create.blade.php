@@ -1,35 +1,25 @@
-@extends('layouts.app', ['title' => __('Add New')])
+@extends('layouts.app')
+@section('main')
 
-@section('content')
-@include('layouts.headers.cards') 
 <!-- Header -->
-<div class="header bg-primary pb-6">
-  <div class="container-fluid">
-    <div class="header-body">
-      <div class="row align-items-center py-4">
-        <div class="col-lg-6 col-7">
-          <h6 class="h2 text-white d-inline-block mb-0">Inbox Modul</h6>
-          <nav aria-label="breadcrumb" class="d-none d-md-inline-block ml-md-4">
-            <ol class="breadcrumb breadcrumb-links breadcrumb-dark">
-              <li class="breadcrumb-item"><a href="#"><i class="fas fa-home"></i></a></li>
-              <li class="breadcrumb-item"><a href="{{ route('modul') }}">Modul</a></li>
-              <li class="breadcrumb-item active" aria-current="page">Modul Baru</li>
-            </ol>
-          </nav>
-        </div>
-      </div>
+<div class="main-content">
+  <div class="section">
+    <div class="section-header">
+    <h1>Modul</h1>
+          <div class="section-header-breadcrumb">
+              <div class="breadcrumb-item active"><a href="#"><i class="fas fa-home"></i></a></div>
+              <div class="breadcrumb-item"><a href="{{ route('modul') }}">Modul</a></div>
+              <div class="breadcrumb-item">Modul Tambah</div>
+          </div>      
     </div>
   </div>
-</div>
-<div class="container-fluid mt--6">
   <div class="row">
     <div class="col">
-      <div class="card bg-light text-black">
+      <div class="card shadow">
           <div class="card-header border-2">
             <h2 class="mb-0">{{ __('Tambah Modul') }}</h2>
           </div>
           <div class="card-body">
-          <h3 >Form Tambah Data Modul</h3>
           <p class="text-blue">Tekan tombol simpan untuk menyimpan data Modul dan tombol kembali untuk kembali</p>
 
           {{ Form::open(['url'=>'modul_name/submit', 'class' => 'form-horizontal', 'method'=>'post']) }}
@@ -71,7 +61,6 @@
       </div>
     </div>    
   </div>
-  @include('layouts.footers.auth')
 </div>
 @endsection
 

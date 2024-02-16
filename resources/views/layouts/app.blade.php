@@ -6,7 +6,7 @@
         name="viewport">
 
         <meta name="_token" content="{{ csrf_token() }}">
-        <title>@yield('title') &mdash; IT</title>
+        <title>{{ config('app.name', 'Argon Dashboard') }} &mdash; IT</title>
         <!-- Favicon -->
         <link href="{{ asset('web') }}/img/favicon.png" rel="icon">
         <!-- General CSS Files -->
