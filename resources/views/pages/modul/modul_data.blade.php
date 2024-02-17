@@ -62,7 +62,7 @@
                                   </a>
                                   <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
                                       <a class="dropdown-item" href="/modul_name/edit/{{ $temp->id }}">Edit Data</a>
-                                      <!-- <a role="button" href="javascript:;" class="dropdown-item" onclick="open_modal('{{($temp->id)}}')" >Hapus Data</a> -->
+                                      <a role="button" href="javascript:;" class="dropdown-item" onclick="open_modal('{{($temp->id)}}')" >Hapus Data</a>
                                   </div>
                                 </div>
                               </td>                            

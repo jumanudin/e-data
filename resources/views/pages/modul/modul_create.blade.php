@@ -3,27 +3,17 @@
 
 <!-- Header -->
 <div class="main-content">
-  <div class="section">
-    <div class="section-header">
-    <h1>Modul</h1>
-          <div class="section-header-breadcrumb">
-              <div class="breadcrumb-item active"><a href="#"><i class="fas fa-home"></i></a></div>
-              <div class="breadcrumb-item"><a href="{{ route('modul') }}">Modul</a></div>
-              <div class="breadcrumb-item">Modul Tambah</div>
-          </div>      
-    </div>
-  </div>
   <div class="row">
     <div class="col">
       <div class="card shadow">
-          <div class="card-header border-2">
+          <div class="card-header border">
             <h2 class="mb-0">{{ __('Tambah Modul') }}</h2>
           </div>
+          {{ Form::open(['url'=>'modul_name/submit', 'class' => 'form-horizontal', 'method'=>'post']) }}
+          @csrf          
           <div class="card-body">
           <p class="text-blue">Tekan tombol simpan untuk menyimpan data Modul dan tombol kembali untuk kembali</p>
 
-          {{ Form::open(['url'=>'modul_name/submit', 'class' => 'form-horizontal', 'method'=>'post']) }}
-          @csrf          
               <div class="form-group{{ $errors->has('nama_modul') ? ' has-danger' : '' }} row mb-2">
                   <label class="col-form-label text-md-right col-md-2">Nama Modul</label>
                   <div class="col-sm-10">
@@ -52,11 +42,14 @@
                   <span class="invalid-feedback"><strong>{{$errors->first('modul_type_id')}}</strong></span>
                   </div>
               </div>
+            </div>
+            <div class="card-footer border">
               <div class="text-right">
-                  <a href="{{url('modul_name')}}" class="btn btn-default"><i class="fa fa-arrow-left"></i> Kembali</a>
-                  <button type="submit" class="btn btn-icon icon-left btn-primary"><i class="fas fa-save"></i> Simpan</button>
+                <a href="{{url('modul_name')}}" class="btn btn-dark"><i class="fas fa-arrow-left"></i> Kembali</a>
+                <button type="submit" class="btn btn-icon icon-left btn-primary"><i class="fas fa-save"></i> Simpan</button>
               </div>
-          </div>     
+            </div>     
+            {{ Form::close()}}
          
       </div>
     </div>    

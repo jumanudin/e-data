@@ -90,7 +90,7 @@ class ModulController extends Controller
             'nama_modul.required'  => 'nama modul harus diisi.',
             'nama_menu.required'  => 'keterangan modul harus diisi.',
             'menu_id.required'  => 'jenis menu harus diisi.',
-        ]);
+        ]);        
         $temp = Modul::find($id);
                 $temp->update($validData);
         $log = Helper::create_log('Modul - Modul System','Update Data',$temp);    
@@ -115,6 +115,6 @@ class ModulController extends Controller
           }else {
             \Session::flash('pesan_gagal','Gagal menghapus data');
         }
-        return redirect('modul_name');
+        return redirect('modul_name')->with('success','data berhasil dihapus');
     }
 }
