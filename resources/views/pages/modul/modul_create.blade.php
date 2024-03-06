@@ -42,6 +42,18 @@
                   <span class="invalid-feedback"><strong>{{$errors->first('modul_type_id')}}</strong></span>
                   </div>
               </div>
+              <div class="form-group {{ $errors->has('menu_id') ? 'has-danger' : '' }} row mb-2">
+                  <label class="col-form-label text-md-right col-md-2 ">Jenis Menu</label>
+                  <div class="col-md-10">
+                  <select id="menu_id" name="menu_id" class="form-control selectric">
+                      <option value=''>..Kode Menu..</option>            
+                      @foreach($menutype as $key=> $value)
+                          <option value="{{ $key }}" >{{ $value }}</option>
+                      @endforeach
+                  </select>       
+                  <span class="invalid-feedback"><strong>{{$errors->first('menu_id')}}</strong></span>                      
+                  </div>
+              </div>            
             </div>
             <div class="card-footer border">
               <div class="text-right">

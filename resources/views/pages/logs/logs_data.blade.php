@@ -1,41 +1,32 @@
-@extends('layouts.app', ['title' => __('User Role Permission')])
+@extends('layouts.app')
 
-@section('content')
-@include('layouts.headers.cards')
+@section('main')
 <!-- Header -->
-<div class="header bg-primary pb-6">
-  <div class="container-fluid">
-    <div class="header-body">
-      <div class="row align-items-center py-4">
-        <div class="col-lg-6 col-7">
-          <h6 class="h2 text-white d-inline-block mb-0">Logs History</h6>
-          <nav aria-label="breadcrumb" class="d-none d-md-inline-block ml-md-4">
-            <ol class="breadcrumb breadcrumb-links breadcrumb-dark">
-              <li class="breadcrumb-item"><a href="#"><i class="fas fa-home"></i></a></li>
-              <li class="breadcrumb-item"><a href="{{ route('logs') }}">Logs</a></li>
-              <li class="breadcrumb-item active" aria-current="page">Logs Data</li>
-            </ol>
-          </nav>
-        </div>
+<div class="main-content">
+  <section class="section">
+    <div class="section-header">
+      <h1>Data Log System</h1> 
+      <div class="section-header-breadcrumb">
+          <div class="breadcrumb-item active"><a href="#"><i class="fas fa-home"></i></a></div>
+          <div class="breadcrumb-item"><a href="{{ route('logs') }}">Log</a></div>
+          <div class="breadcrumb-item">Daftar Log</div>
       </div>
     </div>
-  </div>
-</div>
-<div class="container-fluid mt--7">
+  </section>  
     <div class="row">
         <div class="col">
-            <div class="card bg-light shadow">
-                <div class="card-header border-1">
-                    <div class="row align-items-center">
+            <div class="card shadow">
+                <div class="card-header border">
+                    <div class="row col-12 align-items-center">
                         <div class="col-8">
-                            <h3 class="mb-0 ">Logs</h3>
+                            <h3 class="mb-0 ">Logs List</h3>
                         </div>
                     </div>
                 </div>
                 <div class="card-body">
                 <div class="table-responsive">
-                    <table class="table table-striped table-dark table-hover " id="table">
-                        <thead class="thead-dark">
+                    <table class="table table-striped table-hover " id="table">
+                        <thead class="text-white">
                         <tr>
                             <th>Id Logs</th>
                             <th>Nama Modul</th>
@@ -49,7 +40,7 @@
                             <th>Action</th>
                         </tr>
                         </thead>
-                        <tbody class="list">
+                        <tbody class="list bg-light">
                         @foreach ($logs as $temp)
                         <tr class="border-b border-gray-200 hover:bg-gray-200">
                             <td>{{ $temp->id }}</td>
@@ -72,7 +63,6 @@
                     </table>
                 </div>
           </div> 
-      @include('layouts.footers.auth')        
     </div>   
     @endsection
     @section('modal')
@@ -102,7 +92,7 @@
     </div>
     @endsection
 
-    @section('js')
+    @push('scripts')
       <script type="text/javascript">
         function open_modal(id) {
           $('.modal-message').modal();
@@ -114,5 +104,5 @@
           ]
         });         
       </script>
-    @stop       
+    @endpush       
 

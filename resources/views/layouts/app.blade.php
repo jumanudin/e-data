@@ -6,7 +6,7 @@
         name="viewport">
 
         <meta name="_token" content="{{ csrf_token() }}">
-        <title>{{ config('app.name', 'Argon Dashboard') }} &mdash; IT</title>
+        <title>{{ config('app.name', 'e-Data Statistik') }} &mdash; IT</title>
         <!-- Favicon -->
         <link href="{{ asset('web') }}/img/favicon.png" rel="icon">
         <!-- General CSS Files -->
@@ -17,7 +17,7 @@
             integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
             crossorigin="anonymous"
             referrerpolicy="no-referrer" />
-
+        
         @stack('style')
         <!-- Template CSS -->
         <link rel="stylesheet"

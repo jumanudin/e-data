@@ -1,35 +1,22 @@
-@extends('layouts.app', ['title' => __('Modul Setting System')])
-@section('content')
-@include('layouts.headers.cards') 
+@extends('layouts.app')
+@section('main')
 <!-- Header -->
-<div class="header bg-primary pb-6">
-  <div class="container-fluid">
-    <div class="header-body">
-      <div class="row align-items-center py-4">
-        <div class="col-lg-6 col-7">
-          <h6 class="h2 text-white d-inline-block mb-0">Setting Modul</h6>
-          <nav aria-label="breadcrumb" class="d-none d-md-inline-block ml-md-4">
-            <ol class="breadcrumb breadcrumb-links breadcrumb-dark">
-              <li class="breadcrumb-item"><a href="#"><i class="fas fa-home"></i></a></li>
-              <li class="breadcrumb-item"><a href="{{ route('utility') }}">Setting System</a></li>
-              <li class="breadcrumb-item active" aria-current="page">Setting</li>
-            </ol>
-          </nav>
+<div class="main-content">
+    <section class="section">
+        <div class="section-header">
+            <div class="breadcrumb-item active"><a href="#"><i class="fas fa-home"></i></a></div>
+            <div class="breadcrumb-item"><a href="{{ route('utility') }}">Setting System</a></div>
+            <div class="breadcrumb-item">Setting Item</div>
         </div>
-      </div>
-    </div>
-  </div>
-</div>
-<div class="container-fluid mt--6">
+    </section>
 <div class="row">
     <div class="col">
-        <div class="card">
-            <div class="card-header border-2">
+        <div class="card shadow">
+            <div class="card-header border">
                 <h2 class="mb-0">{{ __('Setting Kebutuhan Aplikasi') }}</h2>
             </div>
             <!-- Card header -->
             <div class="card-body">
-            <h3 >Update Data System</h3>
             <p >Tekan tombol simpan untuk menyimpan data dan tombol back untuk kembali</p>
             {{ Form::open(['url'=>'utility/update/'.$data->id, 'class' => 'form-horizontal','id'=>'fileUploadForm','enctype'=>'multipart/form-data', 'method'=>'post']) }}
             @csrf
@@ -104,7 +91,7 @@
                 </div>    
                 <div class="card-footer">
                     <div class="text-left">
-                        <a href="{{url('home')}}" class="btn btn-med btn-default"><i class="fa fa-arrow-left"></i> Kembali</a>
+                        <a href="{{url('home')}}" class="btn btn-med btn-dark"><i class="fa fa-arrow-left"></i> Kembali</a>
                         <button type="submit" class="btn btn-med btn-icon icon-left btn-primary"><i class="fas fa-save"></i> Simpan</button>
                     </div>
                 </div>
@@ -113,7 +100,6 @@
         </div>    
     </div>
 </div>
-    @include('layouts.footers.auth')
 </div>
 @endsection
 

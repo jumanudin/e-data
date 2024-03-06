@@ -1,39 +1,14 @@
-<x-app-layout>
-    <x-slot name="header_content">
-    <h1> {{ __('Kabupaten/Kota') }} </h1>
-        <div class="section-header-breadcrumb">
-        <div class="breadcrumb-item active"><a href="{{ url('dashboard') }}">Dashboard</a></div>
-            <div class="breadcrumb-item active"><a href="{{ url('city') }}" >Kabupaten/Kota</a></div>
-            <div class="breadcrumb-item active">Tambah Kabupaten/Kota</a></div>
-        </div>
-    </x-slot>
-    <div class="section-body">
-        <h2 class="section-title">Tambah Data Kabupaten / Kota</h2>
-        <p class="section-lead">Tekan tombol simpan untuk menyimpan data Kabupaten atau Kota</p>
-
-
-            @if(Session::has("pesan_berhasil"))
-            <div class="alert alert-success alert-dismissable text-center icon-font">
-                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-                <i class="fa fa-info-circle"></i>  {{ session('pesan_berhasil') }}
-            </div>
-            @elseif(Session::has("pesan_gagal"))
-            <div class="alert alert-danger alert-dismissable text-center icon-font">
-                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-                <i class="fa fa-exclamation-triangle"></i>  {{ session('pesan_gagal') }}
-            </div>
-            @elseif(count($errors) > 0)
-            <div class="alert alert-danger alert-dismissable text-center icon-font">
-                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-                <i class="fa fa-exclamation-triangle"></i>  Mohon periksa kembali inputan anda
-            </div>
-            @endif
-
-            {{ Form::open(['url'=>'city/submit', 'class' => 'form-horizontal', 'method'=>'post']) }}
-            @csrf
-            <div class="card card-primary">
-                <div class="card-header"><h4>Data Input Kabupaten / Kota<h4>
-                </div>
+@extends('layouts.app')
+@section('main')
+<div class="main-content">
+    <div class="row">
+        <div class="col">
+            <div class="card shadow">
+                <div class="card-header border">
+                    <h2 class="mb-0">{{ __('Tambah Modul') }}</h2>
+                </div>    
+                {{ Form::open(['url'=>'city/submit', 'class' => 'form-horizontal', 'method'=>'post']) }}
+                @csrf
                 <div class="card-body">
                     <div class="form-group {{ $errors->has('kode') ? 'has-error' : '' }} row mb-4">
                         <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Kode</label>
@@ -64,8 +39,9 @@
                         </div>
                     </div>
                 </div>    
+                {{ Form::close() }}                    
             </div>    
-            {{ Form::close() }}
-  </div>
-
-</x-app-layout>
+        </div>
+    </div>
+</div>
+@endsection

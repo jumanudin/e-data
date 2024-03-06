@@ -18,6 +18,25 @@ if(window.Chart) {
   Chart.defaults.global.tooltips.intersect = false;
   Chart.defaults.global.tooltips.mode = 'nearest';
 }
+// Toast Alert
+function toast(message, type = 'success', timer = '2500', position = 'bottom-right') {
+  
+  const Toast = Swal.mixin({
+      toast: true,
+      icon : type,
+      background: 'blue',
+      position: position,
+      showConfirmButton: false,
+      timerProgressBar: true,
+      timer: timer,
+      color: 'white'
+  })
+  
+  Toast.fire({
+      type: type,
+      title: message
+  });
+  }  
 
 // DropzoneJS
 if(window.Dropzone) {

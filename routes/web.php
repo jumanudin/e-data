@@ -8,6 +8,8 @@ use App\Http\Controllers\CityController;
 use App\Http\Controllers\ModulController;
 use App\Http\Controllers\PegawaiController;
 use App\Http\Controllers\LevelUserController;
+use App\Http\Controllers\Mad_raController;
+use App\Http\Controllers\Mad_miController;
 
 use App\Http\Controllers\SettingController;
 
@@ -46,6 +48,24 @@ Route::group(['middleware' => 'auth','verified'], function () {
     Route::get('city/edit/{value}', [ CityController::class,"edit"])->middleware('role:city,u');
     Route::post('city/edit/{value}', [ CityController::class,"update"])->middleware('role:city,u');
     Route::get('city/hapus/{value}', [ CityController::class,"destroy"])->middleware('role:city,h');
+/* Transaksi */
+    Route::get('laymad_ra', [ Mad_raController::class, "index" ])->name('laymad_ra')->middleware('role:laymad_ra,l');
+    Route::post('laymad_ra/edit', [ Mad_raController::class, "edit" ])->name('laymad_ra.edit')->middleware('role:laymad_ra,u');
+    Route::post('laymad_ra/update', [ Mad_raController::class, "update" ])->name('laymad_ra.update')->middleware('role:laymad_ra,u');
+    Route::get('laymad_akra', [ Mad_raController::class, "index_akra" ])->name('laymad_akra')->middleware('role:laymad_akra,l');
+    Route::post('laymad_akra/edit', [ Mad_raController::class, "edit_akra" ])->name('laymad_ra.edit.akra')->middleware('role:laymad_akra,u');
+    Route::post('laymad_akra/update', [ Mad_raController::class, "update_akra" ])->name('laymad_ra.update.akra')->middleware('role:laymad_ra,u');
+    Route::get('laymad_gra', [ Mad_raController::class, "index_gra" ])->name('laymad_gra')->middleware('role:laymad_gra,l');
+    Route::post('laymad_gra/edit', [ Mad_raController::class, "edit_gra" ])->name('laymad_ra.edit.gra')->middleware('role:laymad_gra,u');
+    Route::post('laymad_gra/update', [ Mad_raController::class, "update_gra" ])->name('laymad_ra.update.gra')->middleware('role:laymad_gra,u');
+ 
+    Route::get('laymad_akmi', [ Mad_miController::class, "index" ])->name('laymad_akmi')->middleware('role:laymad_akmi,l');
+    Route::post('laymad_akmi/edit', [ Mad_miController::class, "edit" ])->name('laymad_mi.edit')->middleware('role:laymad_akmi,u');
+    Route::post('laymad_akmi/update', [ Mad_miController::class, "update" ])->name('laymad_mi.update')->middleware('role:laymad_akmi,u');
+    Route::get('laymad_gmi', [ Mad_miController::class, "index_gmi" ])->name('laymad_gmi')->middleware('role:laymad_gmi,l');
+    Route::post('laymad_gmi/edit', [ Mad_miController::class, "edit_gmi" ])->name('laymad_mi.edit.gmi')->middleware('role:laymad_gmi,u');
+    Route::post('laymad_gmi/update', [ Mad_miController::class, "update_gmi" ])->name('laymad_mi.update.gmi')->middleware('role:laymad_gmi,u');
+        
 /* System */    
     Route::get('data_user', [ UserController::class, "index_view" ])->name('user')->middleware('role:data_user,l');
     Route::get('data_user/new', [ UserController::class,"create"])->name('user.new')->middleware('role:data_user,t');

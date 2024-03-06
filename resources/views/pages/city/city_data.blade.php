@@ -1,23 +1,29 @@
 @extends('layouts.app')
-@section('title','Kabupaten Kota')
+@push('style')
+    <!-- CSS Libraries -->
+    <link rel="stylesheet" href="{{ asset('library/datatables.net-bs4/css/dataTables.bootstrap4.min.css')}}">
+    <link rel="stylesheet" href="{{ asset('library/datatables.net-select-bs4/css/select.bootstrap4.min.css') }}">
+@endpush
+@section('main')
 <div class="main-content">
-<section class="section">
-    <div class="section-header">
-      <h1>Data Kabupaten Kota</h1>
-      <div class="section-header-breadcrumb">
-          <div class="breadcrumb-item active"><a href="#"><i class="fas fa-home"></i></a></div>
-          <div class="breadcrumb-item"><a href="{{ route('city') }}">Data Kabupaten Kota</a></div>
-          <div class="breadcrumb-item">Inbox Data  </div>
+  <section class="section">
+      <div class="section-header">
+        <h3 >Data Kabupaten Kota</h3>
+        <div class="section-header-breadcrumb">
+            <div class="breadcrumb-item active"><a href="#"><i class="fas fa-home"></i></a></div>
+            <div class="breadcrumb-item"><a href="{{ route('city') }}">Data Kabupaten Kota</a></div>
+            <div class="breadcrumb-item">Inbox Data  </div>
+        </div>
       </div>
-    </div>
-</div>
+  </section>    
+
   <div class="row">
     <div class="col"> 
     <div class="card shadow">
-        <div class="card-header bg-succes border-0">
+        <div class="card-header bg-succes border">
           <div class="row col-12 align-items-center">
               <div class="col-8">
-                  <h3 class=" mb-0">Users</h3>
+                  <h3 class=" mb-0">List Data</h3>
               </div>
               <div class="col-4 text-right">
                   <a href="{{ route('city.create') }}" class="btn btn-sm btn-primary">Tambah</a>
@@ -26,22 +32,20 @@
         </div>      
       <div class="card-body">
         <div class="table-responsive">
-          <table class="table table-striped table-bordered" id="table">
-            <thead>
+          <table class="table table-striped table-hover" id="table">
+            <thead class="text-white">
               <tr>
                 <th class="text-center">No
                 </th>
-                <th>Kode</th>
                 <th>Nama Kabupaten/Kota</th>
                 <th>Nama Ibu Kota</th>
                 <th>Action</th>
               </tr>
             </thead>
-            <tbody>
+            <tbody class="list bg-light">
             @foreach ($data as $temp)
               <tr class="border-b border-gray-200 hover:bg-gray-200">
                 <td class="text-center">{{ ++$i}}</td>
-                <td>{{ $temp->kode }}</td>
                 <td>{{ $temp->nama }}</td>
                 <td>{{ $temp->ibukota }}</td>
                 <td class="py-3 px-6 text-center"><div class="flex item-center justify-center">
@@ -57,8 +61,10 @@
         </div>
       </div>
     </div>
-    </row>
-</div>    
+    </div>
+  </div>  
+</div>  
+@endsection  
 @section('modal')
 <!-- Modal Hapus -->
 <div class="modal fade modal-message" id="myModal">
@@ -85,9 +91,12 @@
   </div>
 </div>
 @endsection
-
 @push('scripts')
-  <script type="text/javascript">
+<!-- JS Libraies -->
+<script src="{{ asset('library/datatables.net/js/jquery.dataTables.min.js') }}"></script>
+<script src="{{ asset('library/datatables.net-bs4/js/dataTables.bootstrap4.min.js') }}"></script>
+<script src="{{ asset('library/datatables.net-select-bs4/js/select.bootstrap4.min.js') }}"></script>   
+<script type="text/javascript">
     function open_modal(id) {
       $('.modal-message').modal();
       $('#submit_hapus').attr("href","{{url('city')}}/hapus/"+id);

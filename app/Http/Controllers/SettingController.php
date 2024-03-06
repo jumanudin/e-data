@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Struktur;
-use App\Models\Ts_master;
 use Illuminate\Support\Facadas\DB;
 use Illuminate\Support\Facades\Crypt;
 use Illuminate\Support\Facades\File;
@@ -21,15 +20,10 @@ class SettingController extends Controller
      */
     public function index()
     {
-        $totdraf    = Ts_master::where('status',0)->count(); 
-        $totsetuju  = Ts_master::where('status',1)->count(); 
-        $totrevisi  = Ts_master::where('status',2)->count();
-        $tottolak   = Ts_master::where('status',3)->count();
         $data = Struktur::first();
-        return view('pages.setting', compact('data','totdraf','totsetuju','totrevisi','tottolak'))
+        return view('pages.setting', compact('data'))
             ->with('i', (request()->input('page', 1) - 1) * 10);
     }
-
     public function update(Request $request, $id)
     {
         // return ($request);

@@ -6,7 +6,6 @@
 @endpush
 @section('main')
 <div class="main-content">
-  <!-- Header -->
     <section class="section">
         <div class="section-header">
           <h1>Data Modul</h1>
@@ -19,8 +18,8 @@
     </section>   
     <div class="row">
         <div class="col">
-            <div class="card bg-default shadow">
-                <div class="card-header border-0">
+            <div class="card shadow">
+                <div class="card-header border">
                     <div class="row col-12 align-items-center">
                         <div class="col-8">
                             <h3 class="mb-0">Daftar Modul</h3>
@@ -75,7 +74,6 @@
               </div>
         </div>
     </div> 
-      @include('layouts.footers.auth')     
     </div>   
     @endsection
 

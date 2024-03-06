@@ -39,7 +39,8 @@ class ModulController extends Controller
     {
         $data = Modul::latest();
         $modtype = Modul_type::all();
-        return view('pages.modul.modul_create', compact('data','modtype'));
+        $menutype = Menu_type::pluck('menu_name','id');        
+        return view('pages.modul.modul_create', compact('data','modtype','menutype'));
     }
 
     /**
@@ -53,11 +54,14 @@ class ModulController extends Controller
         $validData = $request->validate([
             'nama_modul'    => 'required|unique:modul',
             'nama_menu'     => 'required',
-            'modul_type_id' => 'required'
+            'modul_type_id' => 'required',
+            'menu_id'      => 'required',
         ],[
             'nama_modul.unique'     => 'modul ini sudah sudah ada',
             'nama_modul.required'  => 'nama modul harus diisi.',
             'nama_menu.required'  => 'keterangan modul harus diisi.',
+            'modul_type_id.required'  => 'Type Modul harus diisi.',
+            'menu_id.required'  => 'jenis menu harus diisi.',
         ]);
         $temp           = Modul::create($validData);
         $log = Helper::create_log('Modul  - Modul System','Create Data',$temp);

@@ -1,12 +1,20 @@
 "use strict";
-
+    // Javascript to enable link to tab
+    $('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
+      localStorage.setItem('lastTab', $(this).attr('href'));
+      });
+      var lastTab = localStorage.getItem('lastTab');
+      if (lastTab) {
+          $('[href="' + lastTab + '"]').tab('show');
+      }
+      
 (function($, window, i) {
   // Bootstrap 4 Modal
   $.fn.fireModal = function(options) {
     var options = $.extend({
       size: 'modal-md',
       center: false,
-      animation: true,
+      animation: true,  
       title: 'Modal Title',
       closeButton: true,
       header: true,

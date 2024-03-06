@@ -46,18 +46,28 @@
  *    1.41 Avatar
  *    1.42 Wizard
  */
-.table th:first-child{
+tr td{
+  max-width:100%;
+white-space:nowrap;
+}   
+.table th,
+.table td
+{
+   padding: .5rem;
+}
+
+.style th:first-child{
   border-radius:10px 0 0 0;
 }
 
-.table th:last-child{
+.style th:last-child{
   border-radius:0 10px 0 0;
 }
-.table tfoot th:first-child{
+.style tfoot th:first-child{
   border-radius:0 0 0 10px;
 }
 
-.table tfoot th:last-child{
+.style tfoot th:last-child{
   border-radius:0 0 10px 0;
 }
 .circle-50 {
@@ -453,7 +463,7 @@ div.dataTables_wrapper div.dataTables_processing {
   background-color: #fff;
   background-size: 100%;
   width: 50px !important;
-  height: 50px;
+  height: 30px;
   border: none;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.03);
   top: 50% !important;

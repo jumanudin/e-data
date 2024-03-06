@@ -41,6 +41,21 @@
                 !!}
                 {!!
                     Helper::multiple_menu([
+                    'menu' => 'layanan',
+                    'submenu' => ['laymad_gsertifikat','laymad_ra','laymad_akmi']
+                    ],[
+                    'menu' => '#',
+                    'submenu' => ['laymad_gsertifikat','laymad_ra','laymad_akmi']
+                    ],[
+                    'menu' => 'fas fa-database',
+                    'submenu' => ['fas fa-user-cog','fas fa-user-cog','fas fa-user-friends']
+                    ],[
+                    'menu' => 'Layanan Madrasah',
+                    'submenu' => ['Sertifikasi Guru','Data RA','Data MI','Data MTs','Data MA','Keagamaan','Kristen','Katolik','Hindu','Buddha','Konghucu']
+                    ]);
+                !!}      
+                {!!
+                    Helper::multiple_menu([
                     'menu' => 'user',
                     'submenu' => ['role_user','data_user']
                     ],[
