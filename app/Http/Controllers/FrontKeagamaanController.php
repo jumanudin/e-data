@@ -5,7 +5,7 @@
     VERSI           : 1.0.1
     PROGRAMER       : MARJUANDA, S.KOM
     TANGGAL BUAT    : 22 Mei 2024
-    TANGGAL SELESAI : 
+    TANGGAL SELESAI : 07 Juni 2024
     TANGGAL UPDATE  : 
                       
 

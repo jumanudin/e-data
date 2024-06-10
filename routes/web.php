@@ -39,6 +39,7 @@ use App\Http\Controllers\SettingController;
 // ================= Front End Controller ===================
 use App\Http\Controllers\FrontTatakelolaController;
 use App\Http\Controllers\FrontKeagamaanController;
+use App\Http\Controllers\FrontPhuController;
 
 /* ===============================================================================
 
@@ -121,6 +122,11 @@ Route::get('getTabelKeagamaanwakaf/{tahun}/{jenis_data}', [FrontKeagamaanControl
 Route::get('keagamaan_rumahibadah', [FrontKeagamaanController::class, "keagamaan_rumahibadah"]);
 Route::get('get_chartkeagamaanrumahibadah/{value}', [FrontKeagamaanController::class, "getChartKeagamaanRumahibadah"]);
 Route::get('getTabelKeagamaanRumahibadah/{tahun}/{jenis_data}', [FrontKeagamaanController::class, "getTabelKeagamaanRumahibadah"]);
+
+
+// ==================================== Data KUOTA JAMAAH HAJI=====================================================
+Route::get('phu_kuota', [FrontPhuController::class, "phu_kuotajemaah"]);
+
 
 /* ===================================================================================================
 
