@@ -42,6 +42,8 @@
 </header><!-- End Header -->
     
 
+@section('hero')
+
 <!-- ======= Hero Section ======= -->
 <section id="hero" class="d-flex align-items-center mbr-section" >
   <div class="container" >         
@@ -50,6 +52,8 @@
   <h2>Kanwil Kementerian Agama Provinsi Kepulauan Bangka Belitung </h2>
   </div>
 </section><!-- End Hero -->
+@endsection
+
 
 <main id="main">    
 </main>

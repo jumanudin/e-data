@@ -21,9 +21,9 @@ class ModulController extends Controller
      */
     public function index()
     {
-        $data = Modul::leftJoin('Modul_type','modul.modul_type_id','=','modul_type.id')
+        $data = Modul::leftJoin('modul_type','modul.modul_type_id','=','modul_type.id')
         ->leftJoin('menu_type','menu_type.id','=','modul.menu_id')
-        ->select('Modul.*','menu_type.id as menu','menu_type.menu_name as nama_menu','modul_type.id as modul_id','modul_type.modul_type as jenismodul')
+        ->select('modul.*','menu_type.id as menu','menu_type.menu_name as nama_menu','modul_type.id as modul_id','modul_type.modul_type as jenismodul')
         ->get();
         //$data = Modul::all();
         return view('pages.modul.modul_data',compact('data'))
